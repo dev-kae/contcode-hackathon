@@ -17,7 +17,6 @@ const Chat = () => {
         title="Digite aqui abaixo:"
         description=""
         buttons={[]}
-        OtherComponents={<h1>oi</h1>}
       >
         <div class="form-floating">
           <textarea
