@@ -11,6 +11,7 @@ export function HeroSection({
   image,
   clientsLabel,
   clients,
+  children,
   ...rest
 }) {
   return (
@@ -32,14 +33,17 @@ export function HeroSection({
             )}
           </div>
           <div>
-            <img
-              src={image.src}
-              alt={image.alt}
-              className={cn("w-full h-auto", image.className)}
-            />
+            {image && (
+              <img
+                src={image.src}
+                alt={image.alt}
+                className={cn("w-full h-auto", image.className)}
+              />
+            )}
           </div>
-          <div className="text-sm">{clientsLabel}</div>
-          <Brands clients={clients} />
+          {clientsLabel && <div className="text-sm">{clientsLabel}</div>}
+          {clients && <Brands clients={clients} />}
+          {children}
         </div>
       </div>
     </section>

@@ -30,29 +30,33 @@ export function Header({ logo, links, buttons, className, ...rest }) {
               "block absolute top-14 m-2 right-0 w-2/3 border border-base dark:border-base-900 rounded-lg overflow-hidden bg-base-50 dark:bg-base-900 shadow-xl"
           )}
         >
-          <ul className="font-medium flex flex-col gap-2 p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-            {links.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className={
-                  open
-                    ? "text-sm font-normal text-base-600 dark:text-base-400 hover:bg-base-100 dark:hover:bg-base-950 py-3 px-4 rounded-md"
-                    : "text-sm font-normal text-base-600 dark:text-base-400 hover:text-base-800 dark:hover:text-base-300"
-                }
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
+          {links && (
+            <ul className="font-medium flex flex-col gap-2 p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+              {links.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className={
+                    open
+                      ? "text-sm font-normal text-base-600 dark:text-base-400 hover:bg-base-100 dark:hover:bg-base-950 py-3 px-4 rounded-md"
+                      : "text-sm font-normal text-base-600 dark:text-base-400 hover:text-base-800 dark:hover:text-base-300"
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </ul>
+          )}
+        </div>
+        {buttons && (
+          <div className="flex gap-2 ml-auto">
+            <ThemeSwitch />
+            {buttons.map((button, index) => (
+              <Button key={index} {...button} />
             ))}
-          </ul>
-        </div>
-        <div className="flex gap-2 ml-auto">
-          <ThemeSwitch />
-          {buttons.map((button, index) => (
-            <Button key={index} {...button} />
-          ))}
-        </div>
+          </div>
+        )}
         <Button
           icon={open ? "tabler:x" : "tabler:menu-2"}
           color="transparent"
