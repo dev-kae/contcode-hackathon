@@ -1,9 +1,9 @@
 # idea_co
 ## Participantes
-*Kae Lucas Teodoro de Oliveira* - dev.kaeteodoro@gmail.com\n
-*Nathan Menezes* - nmenezes1610@gmail.com
-*Gabriel Almeida dos Santos* - gabriel.almeiidda@gmail.com
-*Danilo Oliveira de Almeida* - danoliveira0507@gmail.com
+- *Kae Lucas Teodoro de Oliveira* - dev.kaeteodoro@gmail.com
+- *Nathan Menezes* - nmenezes1610@gmail.com
+- *Gabriel Almeida dos Santos* - gabriel.almeiidda@gmail.com
+- *Danilo Oliveira de Almeida* - danoliveira0507@gmail.com
 
 ## Descrição do Projeto
 Este projeto propõe o desenvolvimento de uma plataforma inovadora destinada a auxiliar pequenos empreendedores na criação e gestão de suas marcas. A plataforma utilizará agentes de Inteligência Artificial (IA) para fornecer sugestões estratégicas e personalizadas, abrangendo desde a definição do nome e identidade visual até o monitoramento contínuo do desempenho do negócio por meio de um painel de controle interativo (Dashboard).
