@@ -1,4 +1,4 @@
-# idea_co
+# Idea Conquer
 ## Participantes
 - *Kae Lucas Teodoro de Oliveira* - dev.kaeteodoro@gmail.com
 - *Nathan Menezes* - nmenezes1610@gmail.com
