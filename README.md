@@ -1,6 +1,6 @@
 # idea_co
 ## Participantes
-*Kae Lucas Teodoro de Oliveira* - dev.kaeteodoro@gmail.com
+*Kae Lucas Teodoro de Oliveira* - dev.kaeteodoro@gmail.com\n
 *Nathan Menezes* - nmenezes1610@gmail.com
 *Gabriel Almeida dos Santos* - gabriel.almeiidda@gmail.com
 *Danilo Oliveira de Almeida* - danoliveira0507@gmail.com
