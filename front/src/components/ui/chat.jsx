@@ -3,7 +3,7 @@ import { ArrowDown, ThumbsDown, ThumbsUp } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useAutoScroll } from "@/hooks/use-auto-scroll";
-import { Button } from "@/components/ui/button";
+import { Button } from "#/base";
 import { CopyButton } from "@/components/ui/copy-button";
 import { MessageInput } from "@/components/ui/message-input";
 import { MessageList } from "@/components/ui/message-list";
@@ -22,77 +22,103 @@ export function Chat({
   onRateResponse,
   handleSubmitCustom,
   style,
+  chatClosed,
 }) {
   const lastMessage = messages.at(-1);
   const isEmpty = messages.length === 0;
   const isTyping = lastMessage?.role === "user";
 
   return (
-    <ChatContainer className={className} style={style}>
-      {isEmpty && append && suggestions ? (
-        <PromptSuggestions
-          label="Conte sua ideia ✨"
-          append={append}
-          suggestions={suggestions}
-        />
-      ) : null}
-      {messages.length > 0 ? (
-        <ChatMessages messages={messages}>
-          <MessageList
-            messages={messages}
-            isTyping={isTyping}
-            messageOptions={(message) => ({
-              actions: onRateResponse ? (
-                <>
-                  <div className="border-r pr-1">
-                    <CopyButton
-                      content={message.content}
-                      copyMessage="Copiado!"
-                    />
-                  </div>
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    className="h-6 w-6"
-                    onClick={() => onRateResponse(message.id, "thumbs-up")}
-                  >
-                    <ThumbsUp className="h-4 w-4" />
-                  </Button>
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    className="h-6 w-6"
-                    onClick={() => onRateResponse(message.id, "thumbs-down")}
-                  >
-                    <ThumbsDown className="h-4 w-4" />
-                  </Button>
-                </>
-              ) : (
-                <CopyButton content={message.content} copyMessage="Copiado!" />
-              ),
-            })}
+    <>
+      <ChatContainer className={className} style={style}>
+        {isEmpty && append && suggestions ? (
+          <PromptSuggestions
+            label="Conte sua ideia ✨"
+            append={append}
+            suggestions={suggestions}
           />
-        </ChatMessages>
-      ) : null}
-      <ChatForm
-        className="mt-auto"
-        isPending={isGenerating || isTyping}
-        handleSubmit={handleSubmit}
-        handleSubmitCustom={handleSubmitCustom}
-      >
-        {({ files, setFiles }) => (
-          <MessageInput
-            value={input}
-            onChange={handleInputChange}
-            allowAttachments
-            files={files}
-            setFiles={setFiles}
-            stop={stop}
-            isGenerating={isGenerating}
-          />
+        ) : null}
+        {messages.length > 0 ? (
+          <ChatMessages messages={messages}>
+            <MessageList
+              messages={messages}
+              isTyping={isTyping}
+              messageOptions={(message) => ({
+                actions: onRateResponse ? (
+                  <>
+                    <div className="border-r pr-1">
+                      <CopyButton
+                        content={message.content}
+                        copyMessage="Copiado!"
+                      />
+                    </div>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      className="h-6 w-6"
+                      onClick={() => onRateResponse(message.id, "thumbs-up")}
+                    >
+                      <ThumbsUp className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      className="h-6 w-6"
+                      onClick={() => onRateResponse(message.id, "thumbs-down")}
+                    >
+                      <ThumbsDown className="h-4 w-4" />
+                    </Button>
+                  </>
+                ) : (
+                  <CopyButton
+                    content={message.content}
+                    copyMessage="Copiado!"
+                  />
+                ),
+              })}
+            />
+          </ChatMessages>
+        ) : null}
+
+        {!chatClosed && (
+          <ChatForm
+            className="mt-auto"
+            isPending={isGenerating || isTyping}
+            handleSubmit={handleSubmit}
+            handleSubmitCustom={handleSubmitCustom}
+          >
+            {({ files, setFiles }) => (
+              <MessageInput
+                value={input}
+                onChange={handleInputChange}
+                allowAttachments
+                files={files}
+                setFiles={setFiles}
+                stop={stop}
+                isGenerating={isGenerating}
+              />
+            )}
+          </ChatForm>
         )}
-      </ChatForm>
-    </ChatContainer>
+      </ChatContainer>
+      {chatClosed && (
+        <>
+          <Button
+            key={1}
+            href="/closeChat"
+            label="Seguir para o próximo passo"
+            color="dark"
+            variant="link"
+            icon="tabler:arrow-right"
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              marginTop: "1rem",
+            }}
+          />
+        </>
+      )}
+    </>
   );
 }
 Chat.displayName = "Chat";

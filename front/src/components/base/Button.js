@@ -12,6 +12,7 @@ export function Button({
   block = false,
   onClick,
   className,
+  style,
 }) {
   const iconClass = cn(
     { "size-5": size === "base" },
@@ -21,6 +22,7 @@ export function Button({
   const Tag = href ? "a" : "button";
   return (
     <Tag
+      style={style}
       href={href}
       onClick={onClick}
       className={cn(

@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { Header, HeroSection } from "../components/sections";
+import { header } from "@/data";
 import { useChat } from "ai/react";
 import { Chat } from "@/components/ui/chat";
-import { header } from "@/data";
 import axios from "axios";
+import api from "@/axiosConfig";
 
 const ChatPage = () => {
   const {
@@ -16,8 +17,38 @@ const ChatPage = () => {
     stop,
   } = useChat();
 
+  const [chatClosed, setChatClosed] = useState(false);
+
+  async function createSession() {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      if (!localStorage.getItem("sessionSlug")) {
+        const response = await api.post("/agent-collector/create-session");
+        console.log(response);
+        localStorage.setItem("sessionSlug", response.data.sessionSlug);
+      }
+    } catch (error) {}
+  }
+
   async function handleSubmitCustom(message) {
     try {
+      await createSession();
+
+      if (!localStorage.getItem("sessionSlug")) {
+        append({
+          id: Math.random()
+            .toString(36)
+            .substring(2, 2 + 10),
+          content:
+            "Falha ao iniciar conversa, atualize a pagina e tente novamente",
+          role: "assistant",
+        });
+
+        return;
+      }
+
       append({
         id: Math.random()
           .toString(36)
@@ -25,9 +56,17 @@ const ChatPage = () => {
         content: message,
         role: "user",
       });
-      const response = await axios.post("/api/chat", { message });
-      append(response.data);
+
       handleInputChange({ target: { value: "" } });
+
+      const response = await axios.post("/api/chat", {
+        message: message,
+        sessionSlug: localStorage.getItem("sessionSlug"),
+        token: localStorage.getItem("token"),
+      });
+      append(response.data.message);
+
+      if (response.data.collected) setChatClosed(true);
     } catch (error) {
       console.error("Error sending message:", error);
     }
@@ -49,6 +88,7 @@ const ChatPage = () => {
         style={{ justifyContent: "start" }}
       >
         <Chat
+          chatClosed={chatClosed}
           messages={messages}
           input={input}
           handleInputChange={handleInputChange}

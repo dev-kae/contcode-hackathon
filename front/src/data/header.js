@@ -24,14 +24,14 @@ export const header = {
   ],
   buttons: [
     {
-      label: "Sign In",
-      href: "#",
+      label: "Entrar",
+      href: "/signIn",
       color: "transparent",
       size: "small",
     },
     {
-      label: "Sign Up",
-      href: "#",
+      label: "Cadastrar",
+      href: "/signUp",
       color: "dark",
       size: "small",
     },

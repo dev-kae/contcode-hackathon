@@ -27,11 +27,7 @@ export default function Home() {
       <Head>
         <title>WindMill</title>
       </Head>
-      <Header
-        logo={header.logo}
-        links={header.links}
-        buttons={header.buttons}
-      />
+      <Header logo={header.logo} links={[]} buttons={header.buttons} />
       <HeroSection
         id="home"
         badge={{
