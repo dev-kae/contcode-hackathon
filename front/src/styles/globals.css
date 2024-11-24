@@ -10,6 +10,25 @@ section {
   scroll-margin-top: 4rem;
 }
 
+.painel {
+  background-color: var(--base-black);
+  color: var(--base-white);
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.button-toggle {
+  background-color: #B9FF66;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+.agent {
+  background-color: #191A23;
+  color: var(--base-green);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+.title-panel{
+  color: var(--base-green)
+}
 @layer utilities {
   /* .text-title {
     @apply text-base-800 dark:text-base-100;
@@ -35,6 +54,9 @@ section {
 } */
 @layer base {
   :root {
+    --base-black: #191A23;
+    --base-white: #F3F3F3;
+    --base-green: #B9FF66;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -43,6 +65,7 @@ section {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
   }
   .dark {
     --sidebar-background: 240 5.9% 10%;

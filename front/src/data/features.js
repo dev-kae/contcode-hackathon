@@ -1,32 +1,32 @@
 export const features = [
   {
-    title: "Unlimited users",
-    description: "Invite as many team members as you want.",
+    title: "Criação de Marcas Personalizadas",
+    description: "Gere nomes, logotipos e identidades visuais únicos para o seu negócio.",
     icon: "tabler:users",
   },
   {
-    title: "Unlimited projects",
-    description: "Create as many projects as you need.",
+    title: "Painel Interativo (Dashboard)",
+    description: "Monitore métricas importantes e obtenha insights em tempo real para tomar decisões mais assertivas.",
     icon: "tabler:stack",
   },
   {
-    title: "Unlimited storage",
-    description: "Store all your files and assets in one place.",
+    title: "Automação de Operações",
+    description: "Simplifique tarefas administrativas e operacionais, economizando tempo e recursos.",
     icon: "tabler:database",
   },
   {
-    title: "Priority support",
-    description: "Get priority support for all your needs.",
+    title: "Consultoria Inteligente",
+    description: "Receba sugestões estratégicas baseadas em análises de dados para otimizar seu negócio.",
     icon: "tabler:headset",
   },
   {
-    title: "Advanced analytics",
-    description: "Get detailed insights and analytics.",
+    title: "Integração com Negócios Existentes",
+    description: "Expanda sua operação atual com ferramentas que se adaptam às suas necessidades.",
     icon: "tabler:chart-bar",
   },
   {
-    title: "Custom branding",
-    description: "Customize your branding and make it yours.",
+    title: "Suporte Prioritário",
+    description: "Conte com nossa equipe sempre que precisar.",
     icon: "tabler:brand-appstore",
   },
 ];

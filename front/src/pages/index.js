@@ -33,21 +33,19 @@ export default function Home() {
         badge={{
           href: "/",
           icon: "tabler:arrow-right",
-          label: "😻 Learn What's New",
+          label: "😻 Aprenda Sobre as novidades",
         }}
-        title="Your Mailbox is simplified"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-        expedita, ipsam nobis blanditiis provident ducimus aut, velit
-        facere fugit praesentium"
+        title="Transforme sua Ideia em uma Marca de Sucesso!"
+        description="Com nossa plataforma, pequenos empreendedores têm acesso a ferramentas inteligentes de criação e gestão para levar seus negócios ao próximo nível."
         buttons={[
           {
             href: "/chat",
-            label: "Start Free Trail",
+            label: "Comece Agora",
             color: "dark",
           },
           {
             href: "#",
-            label: "Learn More",
+            label: "Saiba mais",
             color: "transparent",
             variant: "link",
             icon: "tabler:arrow-right",
@@ -63,13 +61,13 @@ export default function Home() {
       />
       <FeatureSection
         id="features"
-        title="Discover Our Amazing Features"
-        description="Explore the wide range of powerful features that our product offers. From advanced analytics to seamless integrations, we have everything you need to succeed."
+        title="Descubra Nossas Funcionalidades Incríveis"
+        description="Explore as poderosas ferramentas que nossa plataforma oferece. De automações inteligentes a insights personalizados, temos tudo o que você precisa para impulsionar sua marca."
         features={features}
       />
       <LargeFeatureSection
-        title="Stay on top of your business"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis similique"
+        title="Controle Seu Negócio"
+        description="Monitore, analise e otimize sua marca com ferramentas inteligentes e fáceis de usar. Nossa plataforma coloca o poder dos dados e da automação nas suas mãos, para que você tome as melhores decisões e esteja sempre à frente."
         list={features.slice(0, 3)}
         image={{
           src: "/phone-mockup.png",

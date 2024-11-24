@@ -43,22 +43,22 @@ const Index = () => {
       <div>
         <AlertDialog>
           <AlertDialogTrigger>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-16 p-10">
-              <div className="bg-white shadow-md w-52 overflow-hidden rounded-2xl">
+            <div className="flex flex-col md:flex-row  justify-center items-center gap-16 p-10">
+              <div className="bg-white agent shadow-md w-52 overflow-hidden rounded-2xl">
                 <div className="relative">
                   <span className="absolute top-3 left-3 capitalize text-white bg-red-500 rounded px-3 py-1">
                     Exclusivo
                   </span>
                   <img
-                    src="https://img.freepik.com/vetores-premium/ilustracao-em-vetor-plana-de-icone-de-inteligencia-artificial-ai_423491-69.jpg"
+                    src="logo_generator.png"
                     alt="Rent Savings"
-                    className="h-56 object-cover"
+                    className="h-40 m-5 object-cover "
                   />
                 </div>
 
                 <div className="pt-3 pb-4 px-3.5">
                   <h1 className="text-lg capitalize font-semibold">
-                    Gerar logos com IA
+                    Gerar logos
                   </h1>
                 </div>
               </div>

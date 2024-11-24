@@ -14,6 +14,10 @@ class GenericAgentThreadMessage(BaseModel):
     thread_id: str
     message: str
 
+class ImageGeneratorMessage(BaseModel):
+    promt: str
+    quantity: int
+
 @app.post("/threads/runs")
 def call_openai_agent(request: GenericAgentThreadMessage):
     url = f'https://api.openai.com/v1/threads/{request.thread_id}/messages'
@@ -30,16 +34,16 @@ def call_openai_agent(request: GenericAgentThreadMessage):
     return JSONResponse(content=result)
 
 @app.post("/image/logo")
-def generate_logo(promt: str, quantity: int):
+def generate_logo(request: ImageGeneratorMessage):
     result = []
-    agent = AgentImageGenerator(promt, quantity)
-    if quantity > 3 or quantity < 1:
+    agent = AgentImageGenerator(request.promt, request.quantity)
+    if request.quantity > 3 or request.quantity < 1:
         return "Quantidade inválida. Você deve selecionar um número entre 1 e 3"
     with ThreadPoolExecutor(max_workers=3) as executor:
         futures = [
-            executor.submit(agent.call) for _ in range(1, quantity + 1)
+            executor.submit(agent.call) for _ in range(1, request.quantity + 1)
         ]
         for index, future in enumerate(futures):
-            result.append({f"url": future.result()})
+            result.append(future.result())
 
-    return JSONResponse(content=result)
+    return result

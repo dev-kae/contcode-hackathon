@@ -26,13 +26,13 @@ export default function Layout({ children }) {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
+                <BreadcrumbLink href="/dashboard">HUB</BreadcrumbLink>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
 
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <span>Nome</span>
+            <span>Kae Lucas</span>
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>CN</AvatarFallback>
