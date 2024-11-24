@@ -12,12 +12,16 @@ export function HeroSection({
   clientsLabel,
   clients,
   children,
+  style,
   ...rest
 }) {
   return (
     <section {...rest}>
       <div className="container px-4 mx-auto">
-        <div className="flex flex-col justify-center items-center min-h-screen">
+        <div
+          className="flex flex-col justify-center items-center min-h-screen"
+          style={style}
+        >
           <div className="flex flex-col justify-center items-center gap-4 text-center max-w-3xl mx-auto mt-32 pb-12">
             <Badge {...badge} />
             <h1 className="text-6xl font-display font-semibold title-gradient">

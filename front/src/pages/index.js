@@ -35,7 +35,7 @@ export default function Home() {
       <HeroSection
         id="home"
         badge={{
-          href: "#",
+          href: "/",
           icon: "tabler:arrow-right",
           label: "😻 Learn What's New",
         }}
@@ -45,7 +45,7 @@ export default function Home() {
         facere fugit praesentium"
         buttons={[
           {
-            href: "#",
+            href: "/chat",
             label: "Start Free Trail",
             color: "dark",
           },

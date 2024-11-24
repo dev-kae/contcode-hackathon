@@ -2,7 +2,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  darkMode: "selector",
+  darkMode: ["selector", "class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,11 +11,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        base: colors.stone,
-        primary: colors.purple,
+        base: "colors.stone",
+        primary: "colors.purple",
       },
       borderColor: {
-        default: colors.stone["300"],
+        default: 'colors.stone["300"]',
       },
       fontFamily: {
         display: ["var(--font-display)"],
@@ -24,19 +24,32 @@ module.exports = {
       },
       keyframes: {
         slideDown: {
-          from: { height: "0px" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {
+            height: "0px",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
         },
         slideUp: {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0px" },
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0px",
+          },
         },
       },
       animation: {
         slideDown: "slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         slideUp: "slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
